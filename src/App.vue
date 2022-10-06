@@ -5,8 +5,28 @@
       <router-link to="/active">未完成</router-link> |
       <router-link to="/complete">已完成</router-link>
     </nav>
+    <TodoInput/>
   </div>
 </template>
+
+
+<script>
+  import TodoInput from '@/components/TodoInput/index.vue'
+
+  export default {
+    components: {
+      TodoInput,
+  },
+     computed: {
+      todoIndex() {
+        return this.$store.getters['todoIndex']
+      }
+    },
+    mounted() {
+      this.$store.dispatch('INIT_TODOS')
+    }
+  }
+</script>
 
 <style>
 
@@ -45,4 +65,9 @@ nav a.router-link-exact-active {
   padding: 0.5rem;
   color: black
 }
+
+.inputStyle input{
+  padding:20px;
+  width: 400px
+  }
 </style>

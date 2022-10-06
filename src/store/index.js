@@ -3,10 +3,10 @@ import { createStore } from 'vuex'
 const LS = {
   load() {
     //getItem一開始沒有存，有可能拿不到東西，所以給個空陣列
-    return localStorage.getItem('todo-list') || '[]'
+    return JSON.parse(localStorage.getItem('todo-list') || '[]')
   },
   save(data) {
-    localStorage.setItem('todo-list', data)
+    localStorage.setItem('todo-list', JSON.stringify(data))
   }
 }
 

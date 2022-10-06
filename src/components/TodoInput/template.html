@@ -1,0 +1,10 @@
+<div class="inputStyle">
+    <!-- trim去頭尾空白 -->
+    <input type="text"
+    v-model.trim="todo" 
+    placeholder="請輸入代辦事項" 
+    @keyup.enter="submitHandler"
+    v-focus
+>
+</div>
+
