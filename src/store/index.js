@@ -36,7 +36,7 @@ export default createStore({
     //取得資料，也可像computed，自定義運算處理資料
     todoIndex(state) {
       //取得 原本陣列的index，不然篩選後的順序會改變，index會錯誤
-      return filter[state.route.name](state.todos).map(todo => 
+      return filter[ `${state.route.name}` ](state.todos).map(todo => 
         //map 重新做陣列，只要陣列中的index (不是整包資料，資料比較單純)，
         state.todos.indexOf(todo)
       )
@@ -55,7 +55,7 @@ export default createStore({
       LS.save(state.todos)
     },
     // update是要更新哪一個
-    UPDATA_TODOS(state, {index, data}) {
+    UPDATE_TODOS(state, {index, data}) {
       state.todos[index] = data
       LS.save(state.todos)
     },

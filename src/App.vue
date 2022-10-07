@@ -1,21 +1,26 @@
 <template>
-  <div>
+  <div class="bgc">
     <nav>
       <router-link to="/all">全部</router-link> |
       <router-link to="/active">未完成</router-link> |
       <router-link to="/complete">已完成</router-link>
     </nav>
     <TodoInput/>
+    <div id="list">
+      <TodoItem v-for='index in todoIndex' :key='index' :index='index'/>
+    </div>
   </div>
 </template>
 
 
 <script>
   import TodoInput from '@/components/TodoInput/index.vue'
+  import TodoItem from '@/components/TodoItem/index.vue'
 
   export default {
     components: {
       TodoInput,
+      TodoItem
   },
      computed: {
       todoIndex() {
@@ -42,9 +47,9 @@
     margin: 0
   }
 
-div {
+.bgc {
   background: rgb(96, 202, 141);
-  height: 100vh
+  height:100vh
 }
 
 nav {
@@ -67,7 +72,33 @@ nav a.router-link-exact-active {
 }
 
 .inputStyle input{
-  padding:20px;
-  width: 400px
+  padding:10px;
+  width: 500px;
+  border-radius: 10px;
   }
+
+  .outer {
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    background: white;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 500px;
+    border-radius: 10px;
+  }
+.outer label{
+  font-size: 20px;
+  word-break: break-all;
+  padding: 0px 15px 0px 6px;
+  height: 40px;
+  display: block;
+  line-height: 40px;
+}
+.delete {
+  color:red;
+  border: 0;
+  background-color: white;
+
+}
 </style>
