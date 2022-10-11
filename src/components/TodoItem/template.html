@@ -1,7 +1,16 @@
 <div class="outer">
-    <input type="checkbox" v-model="complete">
-    <label> {{ todo.content }}</label>
-    <button class='delete' @click="removeHandler">X</button>
+
+    <input type="text" v-model.trim="edit" v-if="edit !== null"
+    @keyup.enter="submitHandler"
+    @keyup.esc="cancelHandler"
+    @blur="cancelHandler"
+    >
+
+    <template v-else>
+        <input type="checkbox" v-model="complete">
+        <label @dblclick="editHandler"> {{ todo.content }}</label>
+        <button class='delete' @click="removeHandler">X</button>
+    </template> 
 </div>
 
 

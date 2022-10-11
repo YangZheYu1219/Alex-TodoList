@@ -35,8 +35,12 @@ export default createStore({
   getters: {
     //取得資料，也可像computed，自定義運算處理資料
     todoIndex(state) {
+      // console.log(filter[state.route.name])
+      console.log(filter[state.route.name](state.todos))
+      // console.log(typeof(filter[state.route.name]))
+      console.log(typeof(filter[state.route.name](state.todos)))
       //取得 原本陣列的index，不然篩選後的順序會改變，index會錯誤
-      return filter[ `${state.route.name}` ](state.todos).map(todo => 
+      return filter[state.route.name](state.todos).map(todo => 
         //map 重新做陣列，只要陣列中的index (不是整包資料，資料比較單純)，
         state.todos.indexOf(todo)
       )

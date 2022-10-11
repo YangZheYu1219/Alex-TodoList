@@ -87,6 +87,9 @@ nav a.router-link-exact-active {
     width: 500px;
     border-radius: 10px;
   }
+  .outer input:hover {
+    cursor: pointer;
+  }
 .outer label{
   font-size: 20px;
   word-break: break-all;
@@ -99,6 +102,8 @@ nav a.router-link-exact-active {
   color:red;
   border: 0;
   background-color: white;
-
+}
+.delete:hover {
+  cursor: pointer;
 }
 </style>
